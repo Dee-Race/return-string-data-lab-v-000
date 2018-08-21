@@ -7,6 +7,6 @@ class Product < ActiveRecord::Base
       "Available"
     else
       "Sold Out"
-    end 
+    end
   end 
 end
