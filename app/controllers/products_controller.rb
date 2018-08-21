@@ -1,30 +1,30 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.all 
-  end 
+    @products = Product.all
+  end
 
-  def description 
+  def description
     product = Product.find(params[:id])
     render plain: product.description
-  end 
+  end
 
   def inventory
     product = Product.find(params[:id])
     if product.availablility == "Available"
-      render plain: true 
-    else 
-      render plain: false 
-    end 
-  end 
+      render plain: true
+    else
+      render plain: false
+    end
+  end
 
-  def create 
+  def create
     @product = Product.create(product_params)
     @product.save
     redirect_to products_path
-  end 
+  end
 
-  private 
+  private
 
   def product_params
     params.require(:product).permit(:name, :description, :inventory)
